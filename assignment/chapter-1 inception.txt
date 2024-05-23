@@ -1,0 +1,210 @@
+1.what is emmet?
+
+Emmet is a powerful and time-saving toolkit for web developers that allows for fast and efficient HTML and CSS coding. It is particularly useful in code editors like Visual Studio Code (VSCode), Sublime Text, and many others. Emmet enables you to write large chunks of HTML and CSS code with minimal keystrokes by using abbreviations that expand into full-fledged code snippets.
+
+Typing div.container>ul>li*5   expands to
+
+<div class="container">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+Typing m10  will expand to
+
+margin: 10px;
+
+Typing div#page>div.logo+ul#navigation>li*5>a{Item $} will expand to:
+
+<div id="page">
+    <div class="logo"></div>
+    <ul id="navigation">
+        <li><a href="">Item 1</a></li>
+        <li><a href="">Item 2</a></li>
+        <li><a href="">Item 3</a></li>
+        <li><a href="">Item 4</a></li>
+        <li><a href="">Item 5</a></li>
+    </ul>
+</div>
+
+
+
+2. Difference between Library and framework ?
+
+Library:
+
+Definition:
+A library is a collection of pre-written code that developers can use to perform common tasks. It provides specific functionality that you can call when needed.
+
+Control Flow:
+In a library, the control flow is in the hands of the developer. You decide when and where to call the library functions or methods.
+Example: In JavaScript, using the Lodash library allows you to perform various utility functions (e.g., _.map(), _.filter()) whenever you choose.
+
+Usage:
+Libraries are typically used to perform specific tasks, such as making HTTP requests, manipulating data, or working with the DOM in the case of front-end development.
+Example: jQuery is a library that simplifies HTML DOM tree traversal and manipulation, event handling, and animation.
+
+Flexibility:
+Libraries offer more flexibility because you can choose which parts to use and integrate them into your application as needed.
+
+Framework:
+
+Definition:
+A framework is a comprehensive platform for developing software applications. It provides a structured and predefined way to build and deploy applications.
+
+Control Flow:
+In a framework, the control flow is inverted. The framework dictates the structure of your application and calls your code when it needs to. This concept is known as "Inversion of Control" (IoC).
+Example: In a framework like Angular, you follow its architecture and lifecycle hooks. The framework handles much of the control flow and dictates how the application should be structured.
+
+Usage:
+Frameworks are used to build entire applications and provide a cohesive set of tools and guidelines for building, testing, and deploying software.
+Example: Django is a web framework for Python that provides everything needed to create robust web applications, including ORM, routing, and templating.
+
+Structure:
+Frameworks impose a specific structure and set of conventions that developers must follow. This can help standardize development but may also limit flexibility.
+Example: Ruby on Rails follows the convention over configuration (CoC) principle, which means it has a set structure and conventions to speed up development.
+
+Key Differences:
+
+Inversion of Control:
+Library: You call the library code.
+Framework: The framework calls your code.
+
+Scope:
+Library: Provides specific functionalities (e.g., date manipulation, HTTP requests).
+Framework: Provides a complete structure for application development.
+
+Flexibility vs. Structure:
+Library: Offers more flexibility in how you integrate it.
+Framework: Enforces a particular structure and set of conventions.
+
+Examples:
+Libraries:
+jQuery (JavaScript DOM manipulation)
+Lodash (JavaScript utility functions)
+NumPy (Python numerical operations)
+Frameworks:
+Angular (JavaScript/TypeScript front-end framework)
+React (JavaScript library often considered a framework due to its ecosystem)
+Django (Python web framework)
+Spring (Java-based enterprise framework)
+
+Summary:
+Library: A collection of functions and tools you can call upon to perform specific tasks, giving you more control over your application's flow and structure.
+Framework: A comprehensive system that dictates the architecture and control flow of your application, providing a unified structure and set of tools for building software.
+
+
+
+3.What is CDN? why do we use it?
+
+CDN stands for Content Delivery Network. It's a network of servers spread out across the globe that store and deliver content to users.  The goal is to make websites load faster for users by bringing the content closer to them.
+
+Imagine you order a pizza from a restaurant far away. It would take a long time for the pizza to get to you. A CDN is like having a bunch of local pizza shops that can deliver a similar pizza much faster.
+
+Here's how it works:
+A website stores its content on a server, which is like the original far-away pizza restaurant.
+The CDN copies this content and stores it on its servers in different locations around the world. These are like the local pizza shops.
+When a user visits the website, the CDN finds the server closest to the user and delivers the content from there. This is much faster than getting the content from the original server that might be far away.
+
+We use CDNs to improve website performance for a few reasons:
+Speed: By delivering content from a nearby server, CDNs can significantly reduce loading times for websites. This is especially important for websites that contain a lot of images or videos.
+Availability: If the original server goes down, the CDN can still deliver content from its other servers. This helps to ensure that websites are always available to users.
+Security: Some CDNs offer security features that can help to protect websites from attacks.
+Overall, CDNs are an important tool for improving the performance and reliability of websites.
+
+4.Why is React known as React?
+
+React is called React because it reflects the core idea behind the library: its ability to respond to changes in data.
+
+Here's the connection:
+React applications are built with reusable components. These components can change their appearance based on the data they receive.
+When the data in a React application changes, the components that rely on that data are automatically updated. This ensures the user interface reflects the latest information.
+So, React "reacts" to data changes, efficiently updating the UI to match. This reactive nature is what the name captures.
+
+5.What is crossorigin in script tag?
+
+The crossorigin attribute in a <script> tag is related to Cross-Origin Resource Sharing (CORS). It controls how a browser handles fetching scripts from a different domain (origin) than the one the main HTML page is on.
+
+Here's a breakdown:
+CORS: A security mechanism that restricts how browsers handle requests from different domains. It prevents malicious scripts from one domain from accessing resources on another domain.
+Cross-origin script: A script located on a different domain than the main HTML page.
+By default, browsers won't allow cross-origin scripts to access certain things like cookies or error information due to security concerns. The crossorigin attribute allows you to configure how the browser handles these requests.
+
+There are three possible values for crossorigin:
+anonymous (default if omitted): Allows the script to load but prevents it from sending any cookies or authentication headers with the request. This is useful if you only need the functionality of the script and don't need it to access any user data.
+use-credentials: Allows the script to load and include cookies and authentication headers with the request. This is only secure if the server serving the script has the appropriate CORS headers set to allow access from your domain. Use with caution!
+Empty string: Treated the same as anonymous.
+
+
+6.What is diference between React and ReactDOM ?
+
+React and ReactDOM are two libraries that work together to build web applications, but they handle different aspects:
+
+React:
+Focuses on building the UI (user interface).
+Provides the core concepts and tools for creating reusable components that define how the UI looks and behaves.
+Handles component lifecycle methods, state management, and props (how components receive data).
+Works with a virtual DOM, an in-memory representation of the real DOM, for efficient updates.
+Not browser-specific; the core concepts can be applied to other environments besides web pages (like React Native for mobile apps).
+
+ReactDOM:
+Specifically for working with web browsers.
+Acts as the bridge between React and the browser's Document Object Model (DOM).
+Takes React components and translates them into actual HTML elements that the browser can understand and render on the screen.
+Provides methods for rendering components into the DOM, like ReactDOM.render.
+
+Analogy:
+Think of React as the architect who designs the blueprint for a building (the UI). This blueprint includes details on the rooms, their functionalities, and how they connect. React doesn't deal with the actual construction materials.
+
+ReactDOM is like the construction worker who takes the architect's blueprint and translates it into real bricks and mortar on the building site (the browser). They handle the process of turning the design into something visible.
+
+Key Differences:
+Focus: React on UI concepts, ReactDOM on DOM manipulation.
+Scope: React is broader and can be used in various environments, while ReactDOM is specific to web browsers.
+Functionality: React defines components and their behavior, ReactDOM renders them in the browser.
+In summary, you'll use both React and ReactDOM together when building web applications with React. React provides the building blocks for your UI, and ReactDOM takes care of displaying them on the web page.
+
+
+7.What is difference between react.development.js and react.production.js files via CDN
+
+Here's the difference between react.development.js and react.production.js files served via a CDN:
+
+Functionality:
+Both files contain the core React library code, but they are optimized for different purposes.
+
+react.development.js:
+Designed for development environments.
+Includes features like detailed error messages, source maps, and might even support hot reloading.
+These features help developers identify and fix bugs more easily.
+Downsides:
+Larger file size due to the presence of extra information.
+Slower execution due to features like error messages.
+
+react.production.js:
+Made for production environments (deployed websites).
+Focused on performance and minimizing file size.
+Uses techniques like minification (reducing variable names and removing unnecessary characters) to make the file smaller.
+May not include source maps or detailed error messages.
+Benefits:
+Smaller file size means faster loading times for your website.
+Less information for potential attackers to exploit.
+
+Best Practices:
+Always use react.production.js when deploying your website to a production environment for optimal performance.
+Use react.development.js during development for better debugging and development experience.
+
+
+
+
+
+
+
+
+
+
+
+
