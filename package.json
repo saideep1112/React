@@ -1,0 +1,35 @@
+{
+  "name": "saideep-react",
+  "version": "1.0.0",
+  "description": "This is react by saideep",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saideep1112/React.git"
+  },
+  "keywords": [
+    "react",
+    "saideep"
+  ],
+  "author": "Saideep Gande",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saideep1112/React/issues"
+  },
+  "homepage": "https://github.com/saideep1112/React#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserlist": [
+    "last 2 versions"
+  ]
+}
