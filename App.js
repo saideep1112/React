@@ -11,24 +11,20 @@ import ReactDOM from "react-dom/client";
 //     React.createElement("h2", {}, "I'm an h2 tag"),
 //   ]),
 // ]);
-const JsxHeading = () => {
-  return (
-    <h1 id="heading" className="head">
-      Hello from JSX Heading
-    </h1>
-  );
-};
+const JsxHeading = () => (
+  <h1 id="heading" className="head">
+    Hello from JSX Heading
+  </h1>
+);
 
-const Heading = () => {
-  return (
-    <div className="header">
-      <h1 id="heading" className="head">
-        Hello from React component
-      </h1>
-      <JsxHeading />
-    </div>
-  );
-};
+const Heading = () => (
+  <div className="header">
+    <h1 id="heading" className="head">
+      Hello from React component
+    </h1>
+    <JsxHeading />
+  </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Heading />);
