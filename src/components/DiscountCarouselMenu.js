@@ -4,8 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-const DiscountCarouselMenu = ({ discountData }) => {
+const DiscountCarouselMenu = ({ resData }) => {
   let cnt = 0;
+
+  const discountData =
+    resData?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.offers;
   var settings = {
     className: "slider variable-width",
     dots: false,

@@ -10,7 +10,8 @@ const RestaurantCardMenu = ({ resData }) => {
     areaName,
     sla,
     feeDetails,
-  } = resData?.card?.card?.info;
+  } = resData?.cards[2]?.card?.card?.info;
+
   return (
     <div className="res-info-card-bg-menu">
       <div className="res-info-card-menu">

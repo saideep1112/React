@@ -1,5 +1,5 @@
 const RestaurantNameMenu = ({ resData }) => {
-  const name = resData?.card?.card?.info?.name;
+  const name = resData?.cards[2]?.card?.card?.info?.name;
   return (
     <div className="res-name-menu">
       <div>
