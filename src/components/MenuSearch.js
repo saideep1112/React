@@ -18,7 +18,6 @@ const MenuSearch = () => {
     );
 
   const listOfCards = [];
-  let uniqueArray = [];
 
   if (listOfCards === undefined) {
     return <div>Loading...</div>;
@@ -41,15 +40,11 @@ const MenuSearch = () => {
     }
 
     console.log(listOfCards);
-
-    uniqueArray = _.uniqWith(listOfCards, _.isEqual);
-
-    console.log(uniqueArray);
   }
 
   return (
     <div className="w-6/12 flex flex-col justify-center mx-auto">
-      {uniqueArray.map((item) => (
+      {listOfCards.map((item) => (
         <AccordianCardMenu cardData={item} key={item?.card?.info?.name} />
       ))}
     </div>
