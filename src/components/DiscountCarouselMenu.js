@@ -22,8 +22,10 @@ const DiscountCarouselMenu = ({ resData }) => {
     prevArrow: <PrevArrow />,
   };
   return (
-    <div className="discount-carousel">
-      <div className="discount-carousel-heading">Deals for you</div>
+    <div className="flex flex-col mt-8 mx-3">
+      <div className="font-extrabold text-xl leading-6 tracking-tight text-[#02060CEB]">
+        Deals for you
+      </div>
       <div>
         <Slider {...settings}>
           {discountData.map((dis) => (

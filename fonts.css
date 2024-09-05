@@ -3,3 +3,11 @@
   src: url("./src/fonts/Gilroy-Bold.woff") format("woff");
   font-style: normal;
 }
+
+@font-face {
+  font-family: "ProximaNovaCondensed"; /* Choose a name for the font */
+  src: url("./src/fonts/FontsFree-Net-Proxima-Nova-Cond-Black.otf")
+    format("opentype"); /* Adjust the path as needed */
+  font-weight: 900; /* Adjust the weight if necessary */
+  font-style: normal; /* Adjust the style if needed */
+}
