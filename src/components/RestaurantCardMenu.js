@@ -13,51 +13,59 @@ const RestaurantCardMenu = ({ resData }) => {
   } = resData?.cards[2]?.card?.card?.info;
 
   return (
-    <div className="res-info-card-bg-menu">
-      <div className="res-info-card-menu">
-        <div className="res-info-card-margin-div-menu"></div>
-        <div className="res-info-card-rating-menu">
-          <div className="res-info-card-rating-a">
-            <MdStars style={{ width: "22px", height: "22px" }} />
+    <div className="bg-gradient-custom px-4 pb-4 rounded-b-3xl">
+      <div className="bg-white border border-[#02060C24] rounded-2xl shadow-[0_8px_16px_0_rgba(0, 0, 0, 0.04)]">
+        <div className="mb-5"></div>
+        <div className="flex items-center mx-4">
+          <div className="w-6 h-6 mr-1 mt-0.5 text-[#339D5F]">
+            <MdStars className="h-6 w-6" />
           </div>
-          <div className="res-info-card-rating-b">
+          <div className="font-bold text-lg tracking-tighter text-[#02060CEB] leading-5">
             {avgRating} {"(" + totalRatingsString + ")"}
           </div>
-          <div className="res-info-card-rating-c">•</div>
-          <div className="res-info-card-rating-b">{costForTwoMessage}</div>
-        </div>
-        <div className="res-info-card-cuisine-style">
-          <div className="res-info-card-cuisine">{cuisines.join(", ")}</div>
-        </div>
-        <div className="res-info-card-ol-time">
-          <div className="res-info-card-line">
-            <div className="res-info-card-l-dot"></div>
-            <div className="res-info-card-l-line"></div>
-            <div className="res-info-card-l-dot"></div>
+          <div className="my-0 mx-2">•</div>
+          <div className="font-bold text-lg tracking-tighter text-[#02060CEB] leading-5">
+            {costForTwoMessage}
           </div>
-          <div className="res-info-card-outlet-time">
-            <div className="res-info-card-outlet">
-              <div className="res-info-card-outlet-a">Outlet</div>
-              <div className="res-info-card-outlet-b">{areaName}</div>
+        </div>
+        <div className="flex items-center my-2 mx-5">
+          <div className="cursor-pointer font-bold text-sm leading-4 tracking-tighter text-[#FF5200] decoration-solid decoration-[#FF5200]">
+            {cuisines.join(", ")}
+          </div>
+        </div>
+        <div className="flex items-center mx-5 py-1">
+          <div className="flex flex-col items-center">
+            <div className="w-2 h-2 rounded-full bg-[#C4C4C4]"></div>
+            <div className="h-6 w-[1px] bg-[#C4C4C4]"></div>
+            <div className="w-2 h-2 rounded-full bg-[#C4C4C4]"></div>
+          </div>
+          <div className="flex flex-col justify-center ml-3 pr-4 w-[100%]">
+            <div className="flex mb-0.5">
+              <div className="font-bold text-sm leading-4 text-[#02060CEB] tracking-tight">
+                Outlet
+              </div>
+              <div className="text-center ml-3 font-normal text-sm leading-4 tracking-tight text-[#02060C99]">
+                {areaName}
+              </div>
             </div>
-            <div className="res-info-card-time">
-              <div className="res-info-card-time-a">
+            <div className="flex mt-2">
+              <div className="text-sm font-bold leading-4 tracking-tight text-[#02060CEB]">
                 {sla?.slaString.toLowerCase()}
               </div>
             </div>
           </div>
         </div>
-        <hr className="res-info-card-hr-line"></hr>
-        <div className="res-info-card-del-km-rupee">
-          <div className="res-info-card-del-km-rupee-a">
-            <IoMdBicycle style={{ width: "22px", height: "22px" }} />
+        <hr className="border border-t-0 border-x-0 border-b-[#02060C0D] my-3"></hr>
+        <div className="flex mx-5 items-center">
+          <div className="mt-0.5 w-6 h-6 font-normal text-sm leading-5 tracking-tight text-[#02060C99]">
+            <IoMdBicycle className="w-6 h-6" />
           </div>
-          <div className="res-info-card-del-km-rupee-b">
+          <div className="ml-1.5 font-normal text-sm leading-5 tracking-tight text-[#02060C99]">
             {sla.lastMileTravelString} | ₹{feeDetails?.totalFee / 100} Delivery
             fee will apply
           </div>
         </div>
-        <div className="res-info-card-margin-div-menu"></div>
+        <div className="mb-5"></div>
       </div>
     </div>
   );

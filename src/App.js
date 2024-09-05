@@ -6,6 +6,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import MenuSearch from "./components/MenuSearch";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 // const parent = React.createElement("div", { id: "parent" }, [
@@ -63,6 +64,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/restaurants/:resId/menuSearch",
+        element: <MenuSearch />,
       },
     ],
     errorElement: <Error />,
