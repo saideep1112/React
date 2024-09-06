@@ -13,7 +13,7 @@ const RestaurantCard = ({ resData }) => {
   } = resData?.info;
 
   return (
-    <div className="w-60 m-4">
+    <div className="w-60 lg:w-56 m-4">
       <div className="flex flex-col">
         <div className="h-40">
           <div className="w-60 h-40 flex flex-col">

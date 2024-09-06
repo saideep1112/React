@@ -28,7 +28,7 @@ const Body = () => {
   };
 
   return (
-    <div className="w-9/12 flex flex-col justify-center mx-auto mt-20">
+    <div className="w-9/12 lg:w-9/12 flex flex-col justify-center mx-auto mt-20">
       <div className="flex items-center">
         <div className="mx-4 flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-[#ff5200] sm:max-w-md">
           <input

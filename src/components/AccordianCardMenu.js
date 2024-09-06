@@ -44,7 +44,7 @@ const AccordianCardMenu = ({ cardData }) => {
             <div className="font-normal text-[16px] leading-5 tracking-tight text-[#02060CEB]">
               ₹ {price ? price / 100 : defaultPrice / 100}
             </div>
-            {offerTags && (
+            {offerTags && offerTags.length > 0 && offerTags[0].title && (
               <div className="flex ml-1 mt-1">
                 <div>
                   <MdLocalOffer
