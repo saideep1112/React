@@ -1,5 +1,6 @@
 import { TiStarFullOutline } from "react-icons/ti";
 import { MdLocalOffer } from "react-icons/md";
+import { useState } from "react";
 
 const AccordianCardMenu = ({ cardData }) => {
   const {
@@ -13,6 +14,21 @@ const AccordianCardMenu = ({ cardData }) => {
     offerTags,
     isBestseller,
   } = cardData?.card?.info;
+
+  const [quantity, setQuantity] = useState(0);
+
+  const addToCart = () => {
+    setQuantity(1);
+  };
+
+  const increaseQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity((prevQuantity) => (prevQuantity > 0 ? prevQuantity - 1 : 0));
+  };
+
   return (
     <div className="flex flex-col">
       <div className="flex justify-between py-4">
@@ -81,9 +97,35 @@ const AccordianCardMenu = ({ cardData }) => {
         </div>
         <div>
           {imageId && (
-            <div className="h-36 w-[156px] ml-14">
+            <div className="h-36 w-[156px] ml-14 relative">
+              {quantity === 0 ? (
+                <button
+                  className="absolute bottom-[-15px] left-[16%] bg-white px-9 py-[6px] rounded-md text-[#1BA672] font-extrabold text-lg shadow-md border border-gray-300"
+                  onClick={addToCart}
+                >
+                  ADD
+                </button>
+              ) : (
+                <div className="absolute bottom-[-15px] left-[16%] flex items-center justify-around bg-white py-[6px] rounded-md shadow-md border border-gray-300 space-x-4">
+                  <button
+                    className="text-[#1BA672] font-extrabold text-lg w-3/12 pl-6"
+                    onClick={decreaseQuantity}
+                  >
+                    -
+                  </button>
+                  <span className="text-[#1BA672] font-extrabold text-lg w-6/12 flex text-center">
+                    <div className="w-[100%]">{quantity}</div>
+                  </span>
+                  <button
+                    className="text-[#1BA672] font-extrabold text-lg w-3/12 pr-6"
+                    onClick={increaseQuantity}
+                  >
+                    +
+                  </button>
+                </div>
+              )}
               <img
-                className="h-36 w-[156px] aspect-[156/144]"
+                className="h-auto w-auto aspect-[156/144] rounded-xl object-cover"
                 src={
                   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +
                   imageId
