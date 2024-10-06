@@ -7,7 +7,11 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import MenuSearch from "./components/MenuSearch";
+import CartPage from "./components/CartPage";
+import { CartProvider } from "./components/CartContext";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 // const parent = React.createElement("div", { id: "parent" }, [
 //   React.createElement("div", { id: "child" }, [
@@ -36,10 +40,14 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={store}>
+      <CartProvider>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </CartProvider>
+    </Provider>
   );
 };
 
@@ -68,6 +76,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId/menuSearch",
         element: <MenuSearch />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
     ],
     errorElement: <Error />,

@@ -1,9 +1,18 @@
 import { TiStarFullOutline } from "react-icons/ti";
 import { MdLocalOffer } from "react-icons/md";
 import { useState } from "react";
+import { useCart } from "./CartContext";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCart,
+  decreaseQuantity,
+  increaseQuantity,
+} from "../utils/cartSlice";
 
 const AccordianCardMenu = ({ cardData }) => {
   const {
+    id,
     name,
     itemAttribute,
     price,
@@ -15,19 +24,34 @@ const AccordianCardMenu = ({ cardData }) => {
     isBestseller,
   } = cardData?.card?.info;
 
-  const [quantity, setQuantity] = useState(0);
+  const { resId } = useParams();
 
-  const addToCart = () => {
-    setQuantity(1);
+  // const { cartItems, addToCart, increaseQuantity, decreaseQuantity } =
+  //   useCart();
+
+  // const quantity = cartItems[cardData.card.info.id]?.quantity || 0;
+
+  const dispatch = useDispatch();
+
+  const item = cardData?.card?.info;
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ item, resId: resId }));
   };
 
-  const increaseQuantity = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+  const handleIncrease = () => {
+    dispatch(increaseQuantity(id));
   };
 
-  const decreaseQuantity = () => {
-    setQuantity((prevQuantity) => (prevQuantity > 0 ? prevQuantity - 1 : 0));
+  const handleDecrease = () => {
+    dispatch(decreaseQuantity(id));
   };
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
+  const itemInCart = cartItems[id];
+
+  const quantity = itemInCart ? itemInCart.quantity : 0;
 
   return (
     <div className="flex flex-col">
@@ -101,7 +125,7 @@ const AccordianCardMenu = ({ cardData }) => {
               {quantity === 0 ? (
                 <button
                   className="absolute bottom-[-15px] left-[16%] bg-white px-9 py-[6px] rounded-md text-[#1BA672] font-extrabold text-lg shadow-md border border-gray-300"
-                  onClick={addToCart}
+                  onClick={handleAddToCart}
                 >
                   ADD
                 </button>
@@ -109,7 +133,7 @@ const AccordianCardMenu = ({ cardData }) => {
                 <div className="absolute bottom-[-15px] left-[16%] flex items-center justify-around bg-white py-[6px] rounded-md shadow-md border border-gray-300 space-x-4">
                   <button
                     className="text-[#1BA672] font-extrabold text-lg w-3/12 pl-6"
-                    onClick={decreaseQuantity}
+                    onClick={handleDecrease}
                   >
                     -
                   </button>
@@ -118,7 +142,7 @@ const AccordianCardMenu = ({ cardData }) => {
                   </span>
                   <button
                     className="text-[#1BA672] font-extrabold text-lg w-3/12 pr-6"
-                    onClick={increaseQuantity}
+                    onClick={handleIncrease}
                   >
                     +
                   </button>

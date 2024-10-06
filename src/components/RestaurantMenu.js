@@ -9,6 +9,9 @@ import AccordianNestedMenu from "./AccordianNestedMenu";
 import AccordianMenu from "./AccordianMenu";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import CartBar from "./CartBar";
+import { useSelector } from "react-redux";
+import SwitchRestaurantPopup from "./SwitchRestaurantPopup";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -43,11 +46,15 @@ const RestaurantMenu = () => {
     }
   }
 
+  const showSwitchRestaurantPopup = useSelector(
+    (state) => state.cart.showSwitchRestaurantPopup
+  );
+
   if (!resInfo) {
     return <div>Loading...</div>;
   }
   return (
-    <div className="max-w-[6/12]">
+    <div className="max-w-[6/12] mt-32">
       <div className="w-6/12 max-w-6/12 mx-auto mt-5 mb-0">
         <RestaurantNameMenu resData={resInfo} />
         <RestaurantCardMenu resData={resInfo} />
@@ -96,6 +103,8 @@ const RestaurantMenu = () => {
             )
           )}
         </div>
+        {showSwitchRestaurantPopup && <SwitchRestaurantPopup />}
+        <CartBar />
       </div>
     </div>
   );
