@@ -1,5 +1,6 @@
 import { CDN_URL } from "../utils/constants";
 import { MdStars } from "react-icons/md";
+import { memo } from "react";
 
 const RestaurantCard = ({ resData }) => {
   const {
@@ -13,7 +14,7 @@ const RestaurantCard = ({ resData }) => {
   } = resData?.info;
 
   return (
-    <div className="w-60 lg:w-56 m-4">
+    <div className="w-60">
       <div className="flex flex-col">
         <div className="h-40">
           <div className="w-60 h-40 flex flex-col">
@@ -65,13 +66,13 @@ const RestaurantCard = ({ resData }) => {
   );
 };
 
-export const withPromotedLabel = (RestaurantCard) => {
-  return (props) => {
-    <div>
-      <label>Promoted</label>
-      <RestaurantCard {...props} />
-    </div>;
-  };
-};
+// export const withPromotedLabel = (RestaurantCard) => {
+//   return (props) => {
+//     <div>
+//       <label>Promoted</label>
+//       <RestaurantCard {...props} />
+//     </div>;
+//   };
+// };
 
 export default RestaurantCard;
